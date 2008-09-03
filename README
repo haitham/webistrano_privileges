@@ -1,0 +1,20 @@
+WebistranoPrivileges
+====================
+
+This is Rails plugin that adds user-access control to Webistrano projects.
+After applying it to Webistrano, admin can control which users could gain access to which projects. 
+
+
+After installing the plugin:
+============================
+- run the generate command, accept whenever prompted for overwriting existing files:
+
+	>> ruby script/generate privileges_extensions
+	
+- migrate
+
+	>> rake db:migrate
+
+
+===========================================================================
+Copyright (c) 2008 [Haitham Mohammad], released under the MIT license

@@ -1,0 +1,42 @@
+<%%projects = current_user.admin? ? Project.find(:all) : current_user.projects%>
+<h2>Projects</h2>
+
+<fieldset class="fieldset">
+  <legend> <%%=h pluralize(projects.length, 'Project')%> listed for you</legend>
+
+<%% if projects.empty? %>
+<br/>
+    No projects listed for you.<br />
+  <br/>
+<%% else %>
+  <table class="sortable">
+    <tr>
+      <th width="1%">Name</th>
+      <th width="96%">Description</th>
+      <th width="1%">#Stages</th>
+      <th width="1%">#Deploy.</th>
+      <th width="1%">Created At</th>
+    </tr>
+    <%% for project in projects %>
+      <tr class="<%%= cycle :even, :odd, :name => 'projects'  %>">
+        <td><%%= link_to h(project.name), project_path(project) %></td>
+        <td><%%=h project.description %></td>
+        <td><%%=h project.stages.count %></td>
+        <td><%%=h project.deployments.count %></td>
+        <td><%%=h project.created_at.to_s(:date_with_day) %></td>
+        <td><%%= link_to 'Edit', edit_project_path(project) %></td>
+		<%%if current_user.admin?%>
+        <td><%%= link_to 'Delete', project_path(project), :confirm => 'Are you sure?', :method => :delete %></td>
+		<%%end%>
+      </tr>
+    <%% end %>
+  </table>
+<%% end %>
+
+<br />
+
+<%%if current_user.admin?%>
+<%%= link_to 'New project', new_project_path, :class => 'arrow_link' %>
+<%%end%>
+
+</fieldset>
