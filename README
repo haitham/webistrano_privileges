@@ -13,7 +13,7 @@ After installing the plugin:
 	
 - migrate
 
-	>> rake db:migrate
+	>> rake db:migrate RAILS_ENV=production
 
 
 ===========================================================================
