@@ -1,7 +1,7 @@
 WebistranoPrivileges
 ====================
 
-webistrano_privileges is a simple Rails plugin that I developed, introducing access control to Webistrano-1.3. After applying the plugin to your working webistrano project copy, and running two shell commands, webistrano will be accomodating a simple access control scheme. Admins can manipulate all projects. Non-admins can manipulate only THEIR projects. Admins can add and remove users to projects.
+webistrano_privileges is a simple Rails plugin that introduces access control to Webistrano-1.3. After applying the plugin to your working webistrano project copy, and running two shell commands, webistrano will be accomodating a simple access control scheme. Admins can manipulate all projects. Non-admins can manipulate only THEIR projects. Admins can add and remove users to projects.
 
 What the plugin basically does is:
 - it generates a migration for a many-to-many relation between users and projects.
